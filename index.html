@@ -120,6 +120,7 @@
                                 src="img/alberto.png" alt="Uthappizza">
                             <div class="carousel-caption d-none d-md-block mt-0">
                                 <h2>Alberto Somayya</h2>
+                                <h4>Executive Chef</h4>
                                 <p class="hidden-xs-down">Award winning three-star Michelin chef with wide
                                         International experience having worked closely with
                                         whos-who in the culinary world, he specializes in
@@ -140,11 +141,14 @@
                         <span class="carousel-control-next-icon"></span>
                     </a>
                     <div class="btn-group" id="carouselButtons">
-                        <button class="btn btn-danger btn-sm" id="carousel-pause">
+                        <!-- <button class="btn btn-danger btn-sm" id="carousel-pause">
                             <span class="fa fa-pause"></span>
                         </button>
                         <button class="btn btn-danger btn-sm" id="carousel-play">
                             <span class="fa fa-play"></span>
+                        </button> -->
+                        <button class="btn btn-danger btn-sm" id="carousel-button">
+                            <span id="carousel-button-icon" class="fa fa-pause"></span>
                         </button>
                     </div>
                 </div>
@@ -432,6 +436,19 @@
                 $("#carousel-play").click(function(){
                     $("#mycarousel").carousel('cycle');
                 });
+            });
+
+            $("#carousel-button").click(function(){
+                if ($("#carousel-button").children("span").hasClass('fa-pause')) {
+                    $("#mycarousel").carousel('pause');
+                    $("#carousel-button").children("span").removeClass('fa-pause');
+                    $("#carousel-button").children("span").addClass('fa-play');
+                }
+                else if ($("#carousel-button").children("span").hasClass('fa-play')){
+                    $("#mycarousel").carousel('cycle');
+                    $("#carousel-button").children("span").removeClass('fa-play');
+                    $("#carousel-button").children("span").addClass('fa-pause');                    
+                }
             });
         </script>
 </body>
